@@ -25,7 +25,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python3 -m pip install semgrep
-          if [ -f ./requirements.txt ]; then pip install -r ./requirements.txt; fi
+          if [ -f ./requirement.txt ]; then pip install -r ./requirement.txt; fi
 
       
       - name: Set up Docker Buildx
@@ -43,19 +43,19 @@ jobs:
 
       - name: Push Image
         run: |
-          docker tag test_${{ github.run_number }}:v1 hashko/devsecopslab:v${{ github.run_number }}
-          docker push <dorkea>/<devsecopslab>:v${{ github.run_number }}
+          docker tag test_${{ github.run_number }}:v1 dorkea/devsecopslab:v${{ github.run_number }}
+          docker push dorkea/devsecopslab:v${{ github.run_number }}
 
       - name: Checkout the ENV Repo
         uses: actions/checkout@v3
         with:
-          repository: '<DORKEA>/<Repository1>'
+          repository: 'DORKEA/Repository1'
           ref: 'main'
           token:  ${{ secrets.GITLEAKS}}
 
       - name: Set up YQ command
         run: |
-          wget https://github.com/mikefarah/yq/releases/download/v4.2.0/yq_linux_amd64.tar.gz -O - | sudo tar xz && sudo mv yq_linux_amd64 /usr/bin/yq
+          wget https://github.com/mikefarah/yq/releases/download/v4.2.0/yq_linux_amd64.tar.gz -O - | #sudo tar xz && sudo mv yq_linux_amd64 /usr/bin/yq
 
      #- name: Edit manifests in ENV repo
       # run: |
@@ -66,4 +66,4 @@ jobs:
           git config  user.email "kealton.dorve@gmail.com"
           git config  user.name "${{ DORKEA }}"
           git commit -a -m 'Env file is updated with the new image ${{ github.ref_name }}'
-          git push https://${{ secrets.GITLEAKS }}@github.com<dockeruser>/<dockerrepo>.git
+          git push https://${{ secrets.GITLEAKS }}@github.com/dorkea/devsecopslab.git
