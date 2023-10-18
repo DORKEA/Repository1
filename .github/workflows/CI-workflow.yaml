@@ -66,4 +66,4 @@ jobs:
           git config  user.email "kealton.dorve@gmail.com"
           git config  user.name "dorkea"
           git commit -a -m 'Env file is updated with the new image ${{ github.ref_name }}'
-          git push https://${{ secrets.GITLEAKS }}@github.com/DORKEA/Repository1.git
+          git push https://${{ secrets.GITLEAKS }}@github.com/dorkea/Repository1.git
