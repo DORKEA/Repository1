@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: dorkea/devsecopslab:v17
+          image: dorkea/devsecopslab:v32
           resources:
             requests:
               memory: "50Mi"
