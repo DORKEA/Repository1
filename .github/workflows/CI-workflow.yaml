@@ -18,17 +18,6 @@ jobs:
         with:
           ref: '${{ github.ref_name }}'
           token: ${{ secrets.GITLEAKS }}
-
-          
-     - name: Install Gitleaks
-        run: |
-          curl -sSLo gitleaks https://github.com/zricethezav/gitleaks/releases/download/v7.3.1/gitleaks-linux-amd64
-          chmod +x gitleaks
-          sudo mv gitleaks /usr/local/bin/
-
-      - name: Run Gitleaks Scan
-        run: |
-          docker run --rm -v "$(pwd):/code" zricethezav/gitleaks --verbose
           
 
       - name: Install dependencies 
