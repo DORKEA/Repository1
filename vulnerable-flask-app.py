@@ -236,7 +236,7 @@ if __name__ == '__main__':
 #test3
 #TEST4
 #test5
-#test6
+#test6&
 #test7
 #test8
 #test9
